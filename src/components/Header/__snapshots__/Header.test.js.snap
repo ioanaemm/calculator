@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component correctly renders the result 1`] = `
+<p>
+  12
+</p>
+`;
