@@ -80,4 +80,60 @@ describe("App component", () => {
     instance.onNumberClick("9");
     expect(instance.state.secondTerm).toEqual("79");
   });
+
+  it("handles addition", () => {
+    //setup
+    const component = Renderer.create(<App />);
+    const instance = component.getInstance();
+
+    //setting the stage
+    instance.state = {
+      symbol: "+",
+      firstTerm: "23",
+      secondTerm: "56"
+    };
+
+    //mocks
+    const mockSetState = jest.fn();
+    instance.setState = mockSetState;
+
+    //code to be tested
+    instance.onEqualClick();
+
+    //assertions
+    expect(mockSetState.mock.calls.length).toEqual(1);
+    expect(mockSetState).toBeCalledWith({
+      symbol: "",
+      firstTerm: "79",
+      secondTerm: "0"
+    });
+  });
+
+  it("handles substraction", () => {
+    //setup
+    const component = Renderer.create(<App />);
+    const instance = component.getInstance();
+
+    //setting the stage
+    instance.state = {
+      symbol: "-",
+      firstTerm: "30",
+      secondTerm: "23"
+    };
+
+    //mocks
+    const mockSetState = jest.fn();
+    instance.setState = mockSetState;
+
+    //code to be tested
+    instance.onEqualClick();
+
+    //assertions
+    expect(mockSetState.mock.calls.length).toEqual(1);
+    expect(mockSetState).toBeCalledWith({
+      symbol: "",
+      firstTerm: "7",
+      secondTerm: "0"
+    });
+  });
 });
