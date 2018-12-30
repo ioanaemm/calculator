@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Header(props) {
-  return <p>{props.result}</p>;
+  return <p className="result">{props.result}</p>;
 }
 
 Header.propTypes = {
